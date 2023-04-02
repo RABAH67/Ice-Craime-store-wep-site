@@ -1,0 +1,65 @@
+{% extends "site/base.html" %}
+{% load static %}
+{% block title %}Cart{% endblock title %}
+
+
+{% block content %}
+  
+
+<div class="container">
+    <div class="panel-heading text-center"><h1>Current Cart</h1></div>
+    <hr>
+    <div class="row">
+         <br>
+                <div class="col-md-12">
+                   
+                    <div class="col-md-8 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
+                        <!--SHIPPING METHOD-->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                               <table class="table borderless">
+                                <thead>
+                                    <tr>
+                                        <td><strong>My Orders</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                    {% for order in orders %}
+                                    <tr>
+                                        <td class="col-md-3">
+                                            <div class="media">
+                                                 <a class="thumbnail pull-left" href="{{order.product.product_image.url}}"> <img class="media-object" src="http://lorempixel.com/460/250/" style="width: 72px; height: 72px;"> </a>
+                                                 <div class="media-body">
+                                                     <h5 class="media-heading">{{order.product.title}}</h5>
+                                                 </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center"><input value="{{order.quantity}}" type="number"></td>
+                                        <td class="text-right">$ {{order.product.selling_price}}</td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+
+
+                            </table> 
+
+                            </div>
+                        </div>
+                        <h1 class="text-right"><a type="button" href="{% url 'cart_delete' %}" class="btn btn-danger">Remove</a></h1>
+
+                        <!--SHIPPING METHOD END-->
+                    </div>
+                    </div>
+                    </div>
+    </div>
+
+
+    
+
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "site/base.html" %}
+{% load static %}
+{% block title %}Category{% endblock title %}
+
+{% block panner-slider %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{% static 'app/images/banner/b1.jpg' %}" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{% static 'app/images/banner/b2.jpg' %}" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{% static 'app/images/banner/b3.jpg' %}" alt="Third slide">
+      </div>
+    </div>
+  </div>
+{% endblock panner-slider %}
+
+{% block content %}
+
+<div class="container">
+<h1 class="text-center text-success m-5">Aboute</h1>
+<hr>
+<p class="p-5">Buttons will appear pressed (with a darker background, darker border, and inset shadow) when active. Theres no need to add a class to  as they use a pseudo-class. However, you can still force the same active appearance with .active (and include the aria-pressed="true" attribute) should you need to replicate the state programmatically.Buttons will appear pressed (with a darker background, darker border, and inset shadow) when active. Theres no need to add a class tos as they use a pseudo-class. However, you can still force the same active appearance with .active (and include the aria-pressed="true" attribute) should you need to replicate the state programmatically.</p>
+
+
+<p class="p-5">Buttons will appear pressed (with a darker background, darker border, and inset shadow) when active. Theres no need to add a class to  as they use a pseudo-class. However, you can still force the same active appearance with .active (and include the aria-pressed="true" attribute) should you need to replicate the state programmatically.Buttons will appear pressed (with a darker background, darker border, and inset shadow) when active. Theres no need to add a class tos as they use a pseudo-class. However, you can still force the same active appearance with .active (and include the aria-pressed="true" attribute) should you need to replicate the state programmatically.</p>
+</div>
+{% endblock content %}
