@@ -14,6 +14,7 @@ urlpatterns = [
     path('Cart/',views.cart,name="cart"),
     path('Cart/delete',views.cart_delete,name="cart_delete"),
     path('Category/Product-Detail/<int:pk>',views.DetailView.as_view(),name="detail"),
+    path('Category/Product-Detail/<int:pk>/like',views.LikeView,name="like_post"),
     path('Category/Product-Detail/<int:pk>/add-to-cart/',views.add_to_cart,name="add_to_cart"),
     path('profile/',views.ProfileView.as_view(),name="profile"),
     path('address/',views.address,name="address"),

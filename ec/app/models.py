@@ -41,6 +41,12 @@ class Products(models.Model):
     brand = models.CharField(max_length=100,null=True,blank=True)
     category = models.CharField(choices=CATIGORY_CHOISE,max_length=2,null=True,blank=True)
     product_image = models.ImageField(upload_to='product',null=True,blank=True)
+    likes = models.ManyToManyField(User,related_name='prodect_like')
+
+
+    def total_likes(self):
+        
+        return self.likes.count()
 
     def __str__(self):
         return self.title

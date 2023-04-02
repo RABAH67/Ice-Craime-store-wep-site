@@ -8,9 +8,21 @@ from .models import custem ,Cart,Order
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
-
-
 # Create your views here.
+
+
+def LikeView(request , pk):
+    
+    product = Products.objects.get(pk=pk)
+
+    if request.user in product.likes.all():
+        product.likes.remove(request.user)
+        
+    else:
+        product.likes.add(request.user)
+    return redirect(reverse("detail" ,kwargs={"pk":pk}))
+
+
 
 def home(request):
     

@@ -13,8 +13,20 @@
       <h5 class="card-title">{{product.title}}</h5>
       <p class="card-text">{{product.discription}}</p>
       <p class="card-text"><small class="text-muted">{{product.selling_price}} $ / <small class="text-decoration-line-through text-danger" style="font-size: 15px;">{{product.discoanted_price}}</small></small></p>
-      <form class="d-inline">
-        <a class="btn btn-primary text-center" href="{% url 'add_to_cart' product.id %}">Add to cart</a>
+        
+      <a class="btn btn-primary text-center" href="{% url 'add_to_cart' product.pk %}">Add to cart</a>
+      
+      {% if request.user in product.likes.all %}
+      <a type="submit" href="{% url 'like_post' product.id %}" class="btn btn-success"><i class='bx bxs-like'></i></a>
+
+        {% else %}
+        <a type="submit" href="{% url 'like_post' product.id %}" class="btn btn-success"><i class='bx bxs-dislike'></i></a>
+
+      {% endif %}
+      <small class="muted color-dark">{{product.likes.count}}</small>
+
+      
+      
     </div>
   </div>
 {% endblock content %}
